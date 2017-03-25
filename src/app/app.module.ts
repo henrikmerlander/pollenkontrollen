@@ -11,6 +11,8 @@ import { RegionDetailComponent } from './region-detail/region-detail.component';
 import { RegionsComponent } from './regions/regions.component';
 import { RegionService } from './region.service';
 
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,25 +20,11 @@ import { RegionService } from './region.service';
     RegionsComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
-    RouterModule.forRoot([
-      {
-        path: 'regions',
-        component: RegionsComponent
-      },
-      {
-        path: 'regions/:id',
-        component: RegionDetailComponent
-      },
-      {
-        path: '',
-        redirectTo: 'regions',
-        pathMatch: 'full'
-      }
-    ])
+    MaterialModule
   ],
   providers: [RegionService],
   bootstrap: [AppComponent]
