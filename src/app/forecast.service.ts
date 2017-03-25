@@ -7,7 +7,7 @@ export class ForecastService {
 
   constructor(private http: Http) { }
   
-  getForecast(locationKey: string): Promise<any[]> {
+  getForecast(locationKey: string): Promise<any> {
     return this.http.get(
       environment.api_url +
       '/forecasts/v1/daily/1day' +
