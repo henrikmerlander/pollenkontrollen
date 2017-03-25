@@ -9,6 +9,7 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { RegionDetailComponent } from './region-detail/region-detail.component';
 import { RegionsComponent } from './regions/regions.component';
+import { RegionService } from './region.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { RegionsComponent } from './regions/regions.component';
       }
     ])
   ],
-  providers: [],
+  providers: [RegionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
