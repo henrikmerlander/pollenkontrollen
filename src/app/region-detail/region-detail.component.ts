@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { Region } from '../region';
+import { ForecastService } from '../forecast.service';
 import { RegionService } from '../region.service';
 import 'rxjs/add/operator/switchMap';
 
@@ -12,21 +12,30 @@ import 'rxjs/add/operator/switchMap';
 })
 export class RegionDetailComponent implements OnInit {
 
-  region: Region;
+  forecast: any;
+  region: any;
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
+    private forecastService: ForecastService,
     private regionService: RegionService
   ) { }
 
   ngOnInit() {
     this.route.params
       .switchMap((params: Params) => this.regionService.getRegion(params['id']))
-      .subscribe(region => this.region = region);
+      .subscribe(region => {
+        this.region = region;
+        this.search(region.LocationKey);
+      });
+  }
+
+  search(locationKey: string) {
+    this.forecastService.getForecast(locationKey).then(res => console.log(res));
   }
 
   goBack() {
     this.location.back();
-  }  
+  }
 }

@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
+import { ForecastService } from './forecast.service';
 import { RegionDetailComponent } from './region-detail/region-detail.component';
 import { RegionsComponent } from './regions/regions.component';
 import { RegionService } from './region.service';
@@ -26,7 +27,10 @@ import { AppRoutingModule } from './app-routing.module';
     HttpModule,
     MaterialModule
   ],
-  providers: [RegionService],
+  providers: [
+    ForecastService,
+    RegionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
