@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Region } from '../region';
+import { Region } from '../models/region';
 import { RegionService } from '../region.service';
 
 @Component({

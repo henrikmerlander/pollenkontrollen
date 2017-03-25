@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-import { Region } from './region';
+import { Region } from './models/region';
 import { environment } from '../environments/environment';
 
 import 'rxjs/add/operator/toPromise';
