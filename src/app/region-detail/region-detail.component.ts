@@ -22,7 +22,7 @@ export class RegionDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params
-      .switchMap((params: Params) => this.regionService.getRegion(+params['id']))
+      .switchMap((params: Params) => this.regionService.getRegion(params['id']))
       .subscribe(region => this.region = region);
   }
 
