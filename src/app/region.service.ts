@@ -11,15 +11,7 @@ export class RegionService {
   constructor(private http: Http) { }
 
   getRegions(): Promise<Region[]> {
-    return this.http.get(environment.
-      api_url +
-      '/locations/v1/adminareas/' +
-      environment.countryCode +
-      '?apikey=' + environment.api_key +
-      '&language=' + environment.language)
-      .toPromise()
-      .then(response => response.json())
-      .catch(this.handleError);
+    return Promise.resolve(REGIONS);
   }
 
   getRegion(id: string): Promise<Region> {
@@ -32,3 +24,9 @@ export class RegionService {
     return Promise.reject(error.message || error);
   }
 }
+
+const REGIONS: Region[] = [
+  { ID: '1', LocalizedName: "Stockholm", LocationKey: '314929' },
+  { ID: '2', LocalizedName: "Göteborg", LocationKey: '315909' },
+  { ID: '3', LocalizedName: "Malmö", LocationKey: '314779' }
+];
