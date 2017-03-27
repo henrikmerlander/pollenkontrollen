@@ -4,15 +4,4 @@
   </button>
   <span>{{ region?.LocalizedName }}</span>
 </md-toolbar>
-<md-list>
-  <md-list-item *ngFor="let forecast of forecasts">
-    <span>{{ forecast.Name }}</span>
-    <span class="fill-remaining-space"></span>
-    <md-icon color="{{forecast.CategoryValue >= 1 ? 'primary' : ''}}">{{ forecast.CategoryValue >= 1 ? 'radio_button_checked' : 'radio_button_unchecked' }}</md-icon>
-    <md-icon color="{{forecast.CategoryValue >= 2 ? 'primary' : ''}}">{{ forecast.CategoryValue >= 2 ? 'radio_button_checked' : 'radio_button_unchecked' }}</md-icon>
-    <md-icon color="{{forecast.CategoryValue >= 3 ? 'primary' : ''}}">{{ forecast.CategoryValue >= 3 ? 'radio_button_checked' : 'radio_button_unchecked' }}</md-icon>
-    <md-icon color="{{forecast.CategoryValue >= 4 ? 'primary' : ''}}">{{ forecast.CategoryValue >= 4 ? 'radio_button_checked' : 'radio_button_unchecked' }}</md-icon>
-    <md-icon color="{{forecast.CategoryValue >= 5 ? 'primary' : ''}}">{{ forecast.CategoryValue >= 5 ? 'radio_button_checked' : 'radio_button_unchecked' }}</md-icon>
-    <md-icon color="{{forecast.CategoryValue >= 6 ? 'primary' : ''}}">{{ forecast.CategoryValue >= 6 ? 'radio_button_checked' : 'radio_button_unchecked' }}</md-icon>
-  </md-list-item>
-</md-list>
+{{ forecast?.items[0]?.title }}

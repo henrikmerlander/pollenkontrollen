@@ -6,16 +6,9 @@ import { environment } from '../environments/environment';
 export class ForecastService {
 
   constructor(private http: Http) { }
-  
-  getForecast(locationKey: string): Promise<any> {
-    return this.http.get(
-      environment.api_url +
-      '/forecasts/v1/daily/1day' +
-      '/' + locationKey +
-      '?apikey=' + environment.api_key +
-      '&details=true' +
-      '&metric=true' +
-      '&language=' + environment.language)
+
+  getForecast(url: string): Promise<any> {
+    return this.http.get(environment.rss_to_json_api_url + url)
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError);

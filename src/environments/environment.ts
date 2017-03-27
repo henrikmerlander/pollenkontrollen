@@ -5,8 +5,5 @@
 
 export const environment = {
   production: false,
-  api_key: 'f7F8GdyZsglfj9kp4NTruMb3PepxgpiL',
-  api_url: 'http://dataservice.accuweather.com',
-  countryCode: 'SE',
-  language: 'sv-SE'
+  rss_to_json_api_url: 'https://rss2json.com/api.json?rss_url='
 };

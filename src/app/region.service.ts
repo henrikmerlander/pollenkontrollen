@@ -26,7 +26,7 @@ export class RegionService {
 }
 
 const REGIONS: Region[] = [
-  { ID: '1', LocalizedName: "Stockholm", LocationKey: '314929' },
-  { ID: '2', LocalizedName: "Göteborg", LocationKey: '315909' },
-  { ID: '3', LocalizedName: "Malmö", LocationKey: '314779' }
+  { ID: '1', LocalizedName: "Stockholm", RssUrl: 'http://pollenrapporten.se/4.549d670913d8d81d158347/12.549d670913d8d81d158351.portlet?state=rss&sv.contenttype=text/xml;charset=UTF-8' },
+  { ID: '2', LocalizedName: "Göteborg", RssUrl: 'http://pollenrapporten.se/4.67f7c5a013d827ecb4c349/12.67f7c5a013d827ecb4c353.portlet?state=rss&sv.contenttype=text/xml;charset=UTF-8' },
+  { ID: '3', LocalizedName: "Malmö", RssUrl: 'http://pollenrapporten.se/4.549d670913d8d81d15827f/12.549d670913d8d81d158289.portlet?state=rss&sv.contenttype=text/xml;charset=UTF-8' }
 ];

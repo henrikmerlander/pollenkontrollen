@@ -12,7 +12,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class RegionDetailComponent implements OnInit {
 
-  forecasts: any;
+  forecast: any;
   region: any;
 
   constructor(
@@ -27,13 +27,13 @@ export class RegionDetailComponent implements OnInit {
       .switchMap((params: Params) => this.regionService.getRegion(params['id']))
       .subscribe(region => {
         this.region = region;
-        this.search(region.LocationKey);
+        this.search(region.RssUrl);
       });
   }
 
   search(locationKey: string) {
     this.forecastService.getForecast(locationKey).then(res => {
-      this.forecasts = res.DailyForecasts[0].AirAndPollen;
+      this.forecast = res;
     });
   }
 
