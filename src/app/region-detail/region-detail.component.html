@@ -3,5 +3,10 @@
     <md-icon>arrow_back</md-icon>
   </button>
   <span>{{ region?.LocalizedName }}</span>
+  <span class="fill-remaining-space"></span>
+  <button (click)="toggleFavourite()" md-icon-button>
+    <md-icon *ngIf="favourite">favorite</md-icon>
+    <md-icon *ngIf="!favourite">favorite_border</md-icon>
+  </button>
 </md-toolbar>
 {{ forecast?.items[0]?.title }}

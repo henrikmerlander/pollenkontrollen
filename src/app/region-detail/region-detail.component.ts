@@ -14,6 +14,7 @@ export class RegionDetailComponent implements OnInit {
 
   forecast: any;
   region: any;
+  favourite: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,6 +36,10 @@ export class RegionDetailComponent implements OnInit {
     this.forecastService.getForecast(locationKey).then(res => {
       this.forecast = res;
     });
+  }
+
+  toggleFavourite() {
+    this.favourite = !this.favourite;
   }
 
   goBack() {
