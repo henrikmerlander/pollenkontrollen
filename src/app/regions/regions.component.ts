@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router }  from '@angular/router';
+import { Router } from '@angular/router';
 import { Region } from '../models/region';
 import { RegionService } from '../region.service';
 
@@ -10,7 +10,8 @@ import { RegionService } from '../region.service';
 })
 export class RegionsComponent implements OnInit {
 
-  regions: Region[];
+  regions: Region[] = [];
+  favouriteRegions: Region[] = [];
 
   constructor(private regionService: RegionService, private router: Router) { }
 
@@ -19,7 +20,14 @@ export class RegionsComponent implements OnInit {
   }
 
   getRegions() {
-    this.regionService.getRegions().then(regions => this.regions = regions);
+    this.regionService.getRegions().then(regions => {
+      regions.forEach(region => {
+        if (localStorage.getItem(region.LocalizedName) == 'true') {
+          this.favouriteRegions.push(region);
+        }
+        this.regions.push(region);
+      });
+    });
   }
 
   onClick(region: Region) {

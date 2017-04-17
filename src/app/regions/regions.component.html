@@ -2,5 +2,7 @@
   Välj din region
 </md-toolbar>
 <md-nav-list>
-  <md-list-item (click)="onClick(region)" *ngFor="let region of regions"> {{ region.LocalizedName }}</md-list-item>
+  <md-list-item (click)="onClick(region)" *ngFor="let region of favouriteRegions"> {{ region.LocalizedName }}</md-list-item>
+  <md-divider *ngIf="favouriteRegions.length"></md-divider>
+  <md-list-item (click)="onClick(region)" *ngFor="let region of regions"> {{ region.LocalizedName }}</md-list-item>  
 </md-nav-list>

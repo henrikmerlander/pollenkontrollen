@@ -14,7 +14,7 @@ export class RegionDetailComponent implements OnInit {
 
   forecast: any;
   region: any;
-  favourite: boolean = false;
+  isFavourite: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +29,7 @@ export class RegionDetailComponent implements OnInit {
       .subscribe(region => {
         this.region = region;
         this.search(region.RssUrl);
+        this.isFavourite = localStorage.getItem(this.region.LocalizedName) == 'true';
       });
   }
 
@@ -39,7 +40,9 @@ export class RegionDetailComponent implements OnInit {
   }
 
   toggleFavourite() {
-    this.favourite = !this.favourite;
+    this.isFavourite = !this.isFavourite;
+
+    localStorage.setItem(this.region.LocalizedName, this.isFavourite.toString());
   }
 
   goBack() {
