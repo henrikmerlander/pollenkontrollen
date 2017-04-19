@@ -16,6 +16,7 @@ export class RegionDetailComponent implements OnInit {
   region: any;
   isFavourite: boolean = false;
   loading = true;
+  errorMessage = "Kunde inte hämta prognos. Försök igen senare.";
 
   constructor(
     private route: ActivatedRoute,
@@ -37,8 +38,14 @@ export class RegionDetailComponent implements OnInit {
   search(locationKey: string) {
     this.forecastService.getForecast(locationKey).then(res => {
       this.loading = false;
-      res.items[0].title = res.items[0].title.replace('Senast uppmätta halter ', '');
-      this.forecast = res.items[0].title || "Kunde inte hämta prognos. Försök igen senare.";
+      if (res.items) {
+        res.items[0].title = res.items[0].title.replace('Senast uppmätta halter ', '');
+        this.forecast = res.items[0].title || this.errorMessage;
+      }
+      else {
+        console.log("Here");
+        this.forecast = this.errorMessage;
+      }
     });
   }
 
