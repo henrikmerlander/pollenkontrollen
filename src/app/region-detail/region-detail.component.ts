@@ -15,6 +15,7 @@ export class RegionDetailComponent implements OnInit {
   forecast: any;
   region: any;
   isFavourite: boolean = false;
+  loading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,6 +36,7 @@ export class RegionDetailComponent implements OnInit {
 
   search(locationKey: string) {
     this.forecastService.getForecast(locationKey).then(res => {
+      this.loading = false;
       res.items[0].title = res.items[0].title.replace('Senast uppmätta halter ', '');
       this.forecast = res;
     });
