@@ -38,7 +38,7 @@ export class RegionDetailComponent implements OnInit {
     this.forecastService.getForecast(locationKey).then(res => {
       this.loading = false;
       res.items[0].title = res.items[0].title.replace('Senast uppmätta halter ', '');
-      this.forecast = res;
+      this.forecast = res.items[0].title || "Kunde inte hämta prognos. Försök igen senare.";
     });
   }
 
