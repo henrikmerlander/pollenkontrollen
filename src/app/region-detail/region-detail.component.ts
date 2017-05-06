@@ -40,7 +40,8 @@ export class RegionDetailComponent implements OnInit {
       this.loading = false;
       if (res.items) {
         res.items[0].title = res.items[0].title.replace('Senast uppmätta halter ', '');
-        this.forecast = res.items[0].title || this.errorMessage;
+        res.items[0].title = res.items[0].title || this.errorMessage;
+        this.forecast = res.items[0];
       }
       else {
         console.log("Here");

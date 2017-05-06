@@ -10,4 +10,14 @@
   </button>
 </md-toolbar>
 <md-spinner *ngIf="loading"></md-spinner>
-{{ forecast }}
+<md-list>
+  <md-list-item>
+    {{ forecast?.pubDate | date:'yyyy-MM-dd' }}
+  </md-list-item>
+  <md-list-item>
+    {{ forecast?.title }}
+  </md-list-item>
+  <md-list-item>
+    <a href="{{ forecast?.link }}" *ngIf="forecast">Läs hela rapporten på pollenrapporten.se</a>
+  </md-list-item>
+</md-list>
