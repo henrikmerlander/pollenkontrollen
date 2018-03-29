@@ -44,7 +44,6 @@ export class RegionDetailComponent implements OnInit {
         this.forecast = res.items[0];
       }
       else {
-        console.log("Here");
         this.forecast = this.errorMessage;
       }
     });
