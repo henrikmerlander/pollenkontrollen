@@ -1,13 +1,13 @@
-<md-toolbar color="primary">
+<mat-toolbar color="primary">
   Pollenkontrollen
-</md-toolbar>
-<md-nav-list>
-  <md-list-item (click)="onClick(region)" *ngFor="let region of favouriteRegions">
-    <md-icon md-list-icon>favorite</md-icon>
+</mat-toolbar>
+<mat-nav-list>
+  <mat-list-item (click)="onClick(region)" *ngFor="let region of favouriteRegions">
+    <mat-icon mat-list-icon>favorite</mat-icon>
     {{ region.LocalizedName }}
-  </md-list-item>
-  <md-divider *ngIf="favouriteRegions.length"></md-divider>
-  <md-list-item (click)="onClick(region)" *ngFor="let region of regions">
+  </mat-list-item>
+  <mat-divider *ngIf="favouriteRegions.length"></mat-divider>
+  <mat-list-item (click)="onClick(region)" *ngFor="let region of regions">
     {{ region.LocalizedName }}
-  </md-list-item>
-</md-nav-list>
+  </mat-list-item>
+</mat-nav-list>

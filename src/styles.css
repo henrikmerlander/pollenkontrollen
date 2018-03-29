@@ -5,12 +5,12 @@
     flex: 1 1 auto;
 }
 
-md-toolbar {
+mat-toolbar {
     position: sticky;
     top: 0;
     z-index: 1;
 }
 
-md-spinner {
+mat-spinner {
     margin: 0 auto;
 }

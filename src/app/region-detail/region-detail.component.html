@@ -1,23 +1,23 @@
-<md-toolbar color="primary">
-  <button (click)="goBack()" md-icon-button>
-    <md-icon>arrow_back</md-icon>
+<mat-toolbar color="primary">
+  <button (click)="goBack()" mat-icon-button>
+    <mat-icon>arrow_back</mat-icon>
   </button>
   <span>{{ region?.LocalizedName }}</span>
   <span class="fill-remaining-space"></span>
-  <button (click)="toggleFavourite()" md-icon-button>
-    <md-icon *ngIf="isFavourite">favorite</md-icon>
-    <md-icon *ngIf="!isFavourite">favorite_border</md-icon>
+  <button (click)="toggleFavourite()" mat-icon-button>
+    <mat-icon *ngIf="isFavourite">favorite</mat-icon>
+    <mat-icon *ngIf="!isFavourite">favorite_border</mat-icon>
   </button>
-</md-toolbar>
-<md-spinner *ngIf="loading"></md-spinner>
-<md-list>
-  <md-list-item>
+</mat-toolbar>
+<mat-spinner *ngIf="loading"></mat-spinner>
+<mat-list>
+  <mat-list-item>
     {{ forecast?.pubDate | date:'yyyy-MM-dd' }}
-  </md-list-item>
-  <md-list-item>
+  </mat-list-item>
+  <mat-list-item>
     {{ forecast?.title }}
-  </md-list-item>
-  <md-list-item>
+  </mat-list-item>
+  <mat-list-item>
     <a href="{{ forecast?.link }}" *ngIf="forecast">Läs hela prognosen på pollenrapporten.se</a>
-  </md-list-item>
-</md-list>
+  </mat-list-item>
+</mat-list>
