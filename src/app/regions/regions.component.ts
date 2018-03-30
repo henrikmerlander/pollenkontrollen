@@ -26,4 +26,8 @@ export class RegionsComponent implements OnInit {
   onClick(region: Region) {
     this.router.navigate(['regions', region.ID]);
   }
+
+  onMapClick() {
+    this.router.navigate(['map']);
+  }
 }

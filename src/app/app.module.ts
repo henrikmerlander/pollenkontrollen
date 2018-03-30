@@ -51,13 +51,15 @@ import { ForecastService } from './forecast.service';
 import { RegionDetailComponent } from './region-detail/region-detail.component';
 import { RegionsComponent } from './regions/regions.component';
 import { RegionService } from './region.service';
+import { RegionMapComponent } from './region-map/region-map.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegionDetailComponent,
-    RegionsComponent
+    RegionsComponent,
+    RegionMapComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

@@ -1,5 +1,9 @@
 <mat-toolbar color="primary">
   Pollenkontrollen
+  <span class="fill-remaining-space"></span>
+  <button (click)="onMapClick()" mat-icon-button>
+    <mat-icon>map</mat-icon>
+  </button>
 </mat-toolbar>
 <mat-nav-list>
   <mat-list-item (click)="onClick(region)" *ngFor="let region of favouriteRegions | async">
