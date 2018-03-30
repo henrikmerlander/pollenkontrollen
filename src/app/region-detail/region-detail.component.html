@@ -9,15 +9,13 @@
     <mat-icon *ngIf="!isFavourite">favorite_border</mat-icon>
   </button>
 </mat-toolbar>
-<div class="skeleton" *ngIf="loading"></div>
-<mat-list>
-  <mat-list-item>
-    {{ forecast?.pubDate | date:'yyyy-MM-dd' }}
-  </mat-list-item>
-  <mat-list-item>
-    {{ forecast?.title }}
-  </mat-list-item>
-  <mat-list-item>
-    <a href="{{ forecast?.link }}" *ngIf="forecast">Läs hela prognosen på pollenrapporten.se</a>
-  </mat-list-item>
-</mat-list>
+<mat-card>
+  <mat-card-content>
+    <div class="skeleton" *ngIf="loading"></div>
+    <ng-container *ngIf="!loading">
+      <p>{{ forecast?.pubDate | date:'yyyy-MM-dd' }}</p>
+      <p>{{ forecast?.title }}</p>
+      <a href="{{ forecast?.link }}" *ngIf="forecast">Läs hela prognosen på pollenrapporten.se</a>
+    </ng-container>
+  </mat-card-content>
+</mat-card>
