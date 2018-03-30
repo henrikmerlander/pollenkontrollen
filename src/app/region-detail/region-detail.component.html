@@ -9,7 +9,7 @@
     <mat-icon *ngIf="!isFavourite">favorite_border</mat-icon>
   </button>
 </mat-toolbar>
-<mat-spinner *ngIf="loading"></mat-spinner>
+<div class="skeleton" *ngIf="loading"></div>
 <mat-list>
   <mat-list-item>
     {{ forecast?.pubDate | date:'yyyy-MM-dd' }}
