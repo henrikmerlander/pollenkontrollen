@@ -37,15 +37,20 @@ import {
   MatTooltipModule,
 } from '@angular/material';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import 'hammerjs';
 
+import { environment } from '../environments/environment';
+
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+
 import { ForecastService } from './forecast.service';
 import { RegionDetailComponent } from './region-detail/region-detail.component';
 import { RegionsComponent } from './regions/regions.component';
 import { RegionService } from './region.service';
 
-import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -54,6 +59,8 @@ import { AppRoutingModule } from './app-routing.module';
     RegionsComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     AppRoutingModule,
     BrowserModule,
     FormsModule,

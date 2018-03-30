@@ -7,7 +7,7 @@
     {{ region.LocalizedName }}
   </mat-list-item>
   <mat-divider *ngIf="favouriteRegions.length"></mat-divider>
-  <mat-list-item (click)="onClick(region)" *ngFor="let region of regions">
+  <mat-list-item (click)="onClick(region)" *ngFor="let region of regions | async">
     {{ region.LocalizedName }}
   </mat-list-item>
 </mat-nav-list>

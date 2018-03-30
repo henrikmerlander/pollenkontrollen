@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Region } from '../models/region';
 import { RegionService } from '../region.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-regions',
@@ -10,27 +11,24 @@ import { RegionService } from '../region.service';
 })
 export class RegionsComponent implements OnInit {
 
-  regions: Region[] = [];
+  regions: Observable<Region[]>;
   favouriteRegions: Region[] = [];
 
   constructor(private regionService: RegionService, private router: Router) { }
 
   ngOnInit() {
-    this.getRegions();
-  }
+    this.regions = this.regionService.getRegions();
 
-  getRegions() {
-    this.regionService.getRegions().then(regions => {
+    this.regions.subscribe(regions => {
       regions.forEach(region => {
         if (localStorage.getItem(region.LocalizedName) == 'true') {
           this.favouriteRegions.push(region);
         }
-        this.regions.push(region);
       });
-    });
+    })
   }
 
   onClick(region: Region) {
-    this.router.navigate(['/regions', region.ID]);
+    this.router.navigate(['regions', region.ID]);
   }
 }
