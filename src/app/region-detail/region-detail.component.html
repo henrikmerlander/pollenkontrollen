@@ -12,10 +12,8 @@
 <mat-card>
   <mat-card-content>
     <div class="skeleton" *ngIf="loading"></div>
-    <ng-container *ngIf="!loading">
-      <p>{{ forecast?.pubDate | date:'yyyy-MM-dd' }}</p>
-      <p>{{ forecast?.title }}</p>
-      <a href="{{ forecast?.link }}" *ngIf="forecast">Läs hela prognosen på pollenrapporten.se</a>
-    </ng-container>
+    <p>{{ forecast?.pubDate | date:'yyyy-MM-dd' }}</p>
+    <p>{{ forecast?.title }}</p>
+    <a href="{{ forecast?.link }}" *ngIf="forecast">Läs hela prognosen på pollenrapporten.se</a>
   </mat-card-content>
 </mat-card>
