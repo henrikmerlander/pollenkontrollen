@@ -39,6 +39,7 @@ import {
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AgmCoreModule } from '@agm/core';
 import 'hammerjs';
 
 import { environment } from '../environments/environment';
@@ -59,6 +60,9 @@ import { RegionService } from './region.service';
     RegionsComponent
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: environment.google.maps.apiKey
+    }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AppRoutingModule,

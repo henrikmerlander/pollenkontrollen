@@ -8,5 +8,10 @@ export const environment = {
     projectId: "pollenkontrollen",
     storageBucket: "pollenkontrollen.appspot.com",
     messagingSenderId: "1036343881291"
+  },
+  google: {
+    maps: {
+      apiKey: 'AIzaSyBlJyv3d6EGmrNRoPb6yJZMa2-PIPw9VcM'
+    }
   }
 };
