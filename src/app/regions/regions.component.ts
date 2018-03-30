@@ -12,20 +12,15 @@ import { Observable } from 'rxjs/Observable';
 export class RegionsComponent implements OnInit {
 
   regions: Observable<Region[]>;
-  favouriteRegions: Region[] = [];
+  favouriteRegions: Observable<Region[]>;
 
   constructor(private regionService: RegionService, private router: Router) { }
 
   ngOnInit() {
     this.regions = this.regionService.getRegions();
-
-    this.regions.subscribe(regions => {
-      regions.forEach(region => {
-        if (localStorage.getItem(region.LocalizedName) == 'true') {
-          this.favouriteRegions.push(region);
-        }
-      });
-    })
+    this.favouriteRegions = this.regions.map(regions => regions.filter(region => {
+      return localStorage.getItem(region.LocalizedName) == 'true';
+    }));
   }
 
   onClick(region: Region) {

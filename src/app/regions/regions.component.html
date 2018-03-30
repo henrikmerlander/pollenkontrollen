@@ -2,11 +2,11 @@
   Pollenkontrollen
 </mat-toolbar>
 <mat-nav-list>
-  <mat-list-item (click)="onClick(region)" *ngFor="let region of favouriteRegions">
+  <mat-list-item (click)="onClick(region)" *ngFor="let region of favouriteRegions | async">
     <mat-icon mat-list-icon>favorite</mat-icon>
     {{ region.LocalizedName }}
   </mat-list-item>
-  <mat-divider *ngIf="favouriteRegions.length"></mat-divider>
+  <mat-divider *ngIf="(favouriteRegions | async)?.length"></mat-divider>
   <mat-list-item (click)="onClick(region)" *ngFor="let region of regions | async">
     {{ region.LocalizedName }}
   </mat-list-item>
