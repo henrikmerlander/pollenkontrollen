@@ -5,8 +5,7 @@ import { RegionDetailComponent } from './region-detail/region-detail.component';
 import { RegionsComponent } from './regions/regions.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'regions', pathMatch: 'full' },
-    { path: 'regions', component: RegionsComponent },
+    { path: '', component: RegionsComponent },
     { path: 'regions/:id', component: RegionDetailComponent }
 ];
 
