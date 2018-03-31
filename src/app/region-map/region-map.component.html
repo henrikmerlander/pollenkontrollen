@@ -4,3 +4,6 @@
   </button>
   <span>Map</span>
 </mat-toolbar>
+<agm-map [latitude]="center.latitude" [longitude]="center.longitude" [zoom]="center.zoom">
+  <agm-marker *ngFor="let region of regions | async" [latitude]="region.location.latitude" [longitude]="region.location.longitude"></agm-marker>
+</agm-map>
