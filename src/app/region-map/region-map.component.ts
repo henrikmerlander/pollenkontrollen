@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Region } from '../models/region';
 import { RegionService } from '../region.service';
@@ -21,11 +22,16 @@ export class RegionMapComponent implements OnInit {
 
   constructor(
     private regionService: RegionService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.regions = this.regionService.getRegions();
+  }
+
+  onMarkerClick(region: Region) {
+    this.router.navigate(['regions', region.ID]);
   }
 
   goBack() {

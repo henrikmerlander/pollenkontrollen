@@ -2,8 +2,13 @@
   <button (click)="goBack()" mat-icon-button>
     <mat-icon>arrow_back</mat-icon>
   </button>
-  <span>Map</span>
+  <span>Karta</span>
 </mat-toolbar>
 <agm-map [latitude]="center.latitude" [longitude]="center.longitude" [zoom]="center.zoom">
-  <agm-marker *ngFor="let region of regions | async" [latitude]="region.location.latitude" [longitude]="region.location.longitude"></agm-marker>
+  <agm-marker
+    *ngFor="let region of regions | async"
+    [latitude]="region.location.latitude"
+    [longitude]="region.location.longitude"
+    (markerClick)="onMarkerClick(region)"
+  ></agm-marker>
 </agm-map>
