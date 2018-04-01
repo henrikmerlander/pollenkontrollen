@@ -1,19 +1,23 @@
 <mat-toolbar color="primary">
-  <button (click)="goBack()" mat-icon-button>
+  <button (click)="goBack()"
+          mat-icon-button>
     <mat-icon>arrow_back</mat-icon>
   </button>
   <span>{{ region?.LocalizedName }}</span>
   <span class="fill-remaining-space"></span>
-  <button (click)="toggleFavourite()" mat-icon-button>
+  <button (click)="toggleFavourite()"
+          mat-icon-button>
     <mat-icon *ngIf="isFavourite">favorite</mat-icon>
     <mat-icon *ngIf="!isFavourite">favorite_border</mat-icon>
   </button>
 </mat-toolbar>
 <mat-card>
   <mat-card-content>
-    <div class="skeleton" *ngIf="loading"></div>
+    <div class="skeleton"
+         *ngIf="loading"></div>
     <p>{{ forecast?.pubDate | date:'yyyy-MM-dd' }}</p>
     <p>{{ forecast?.title }}</p>
-    <a href="{{ forecast?.link }}" *ngIf="forecast">Läs hela prognosen på pollenrapporten.se</a>
+    <a href="{{ forecast?.link }}"
+       *ngIf="forecast">Läs hela prognosen på pollenrapporten.se</a>
   </mat-card-content>
 </mat-card>

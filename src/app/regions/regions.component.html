@@ -1,17 +1,22 @@
 <mat-toolbar color="primary">
   Pollenkontrollen
   <span class="fill-remaining-space"></span>
-  <button routerLink="map" mat-icon-button>
+  <button routerLink="map"
+          mat-icon-button>
     <mat-icon>map</mat-icon>
   </button>
 </mat-toolbar>
 <mat-nav-list>
-  <a mat-list-item routerLink="regions/{{ region.ID }}" *ngFor="let region of favouriteRegions | async">
+  <a mat-list-item
+     routerLink="regions/{{ region.ID }}"
+     *ngFor="let region of favouriteRegions | async">
     <mat-icon mat-list-icon>favorite</mat-icon>
     {{ region.LocalizedName }}
   </a>
   <mat-divider *ngIf="(favouriteRegions | async)?.length"></mat-divider>
-  <a mat-list-item routerLink="regions/{{ region.ID }}" *ngFor="let region of regions | async">
+  <a mat-list-item
+     routerLink="regions/{{ region.ID }}"
+     *ngFor="let region of regions | async">
     {{ region.LocalizedName }}
   </a>
 </mat-nav-list>
