@@ -11,14 +11,14 @@ import { Observable } from 'rxjs/Observable';
 export class RegionsComponent implements OnInit {
 
   regions: Observable<Region[]>;
-  favouriteRegions: Observable<Region[]>;
 
   constructor(private regionService: RegionService) { }
 
   ngOnInit() {
     this.regions = this.regionService.getRegions();
-    this.favouriteRegions = this.regions.map(regions => regions.filter(region => {
-      return localStorage.getItem(region.LocalizedName) == 'true';
-    }));
+  }
+
+  isFavorite(region: Region) {
+    return localStorage.getItem(region.LocalizedName) == 'true';
   }
 }

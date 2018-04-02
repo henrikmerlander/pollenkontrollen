@@ -9,14 +9,8 @@
 <mat-nav-list>
   <a mat-list-item
      routerLink="regions/{{ region.ID }}"
-     *ngFor="let region of favouriteRegions | async">
-    <mat-icon mat-list-icon>favorite</mat-icon>
-    {{ region.LocalizedName }}
-  </a>
-  <mat-divider *ngIf="(favouriteRegions | async)?.length"></mat-divider>
-  <a mat-list-item
-     routerLink="regions/{{ region.ID }}"
      *ngFor="let region of regions | async">
-    {{ region.LocalizedName }}
+    {{ region.LocalizedName }}&nbsp;
+    <mat-icon *ngIf="isFavorite(region)">favorite</mat-icon>
   </a>
 </mat-nav-list>
