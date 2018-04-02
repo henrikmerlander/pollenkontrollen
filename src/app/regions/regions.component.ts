@@ -15,7 +15,10 @@ export class RegionsComponent implements OnInit {
   constructor(private regionService: RegionService) { }
 
   ngOnInit() {
-    this.regions = this.regionService.getRegions();
+    this.regions = this.regionService
+      .getRegions()
+      .map(regions => regions
+        .sort((a, b) => a.LocalizedName.localeCompare(b.LocalizedName)));
   }
 
   isFavorite(region: Region) {
