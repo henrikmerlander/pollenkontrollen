@@ -15,7 +15,7 @@
     flex: 1 1 auto;
 }
 
-mat-toolbar {
+header {
     position: sticky;
     top: 0;
     z-index: 1;

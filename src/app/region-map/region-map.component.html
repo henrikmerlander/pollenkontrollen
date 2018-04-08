@@ -1,16 +1,21 @@
-<mat-toolbar color="primary">
-  <button (click)="goBack()"
-          mat-icon-button>
-    <mat-icon>arrow_back</mat-icon>
-  </button>
-  <span>Mätstationer</span>
-</mat-toolbar>
-<agm-map [latitude]="center.latitude"
-         [longitude]="center.longitude"
-         [zoom]="center.zoom"
-         [streetViewControl]="false">
-  <agm-marker *ngFor="let region of regions | async"
-              [latitude]="region.location.latitude"
-              [longitude]="region.location.longitude"
-              (markerClick)="onMarkerClick(region)"></agm-marker>
-</agm-map>
+<header role="banner">
+  <mat-toolbar color="primary">
+    <button (click)="goBack()"
+            mat-icon-button
+            aria-label="Back">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span>Mätstationer</span>
+  </mat-toolbar>
+</header>
+<main role="main">
+  <agm-map [latitude]="center.latitude"
+           [longitude]="center.longitude"
+           [zoom]="center.zoom"
+           [streetViewControl]="false">
+    <agm-marker *ngFor="let region of regions | async"
+                [latitude]="region.location.latitude"
+                [longitude]="region.location.longitude"
+                (markerClick)="onMarkerClick(region)"></agm-marker>
+  </agm-map>
+</main>
