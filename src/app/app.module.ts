@@ -37,6 +37,7 @@ import {
   MatTooltipModule,
 } from '@angular/material';
 import { RouterModule } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AgmCoreModule } from '@agm/core';
@@ -103,6 +104,7 @@ import { RegionMapComponent } from './region-map/region-map.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    ServiceWorkerModule.register('/service-worker.js', { enabled: environment.production })
   ],
   providers: [
     ForecastService,
