@@ -7,8 +7,7 @@
     "start": "ng serve",
     "build": "ng build",
     "lint": "ng lint",
-    "precache": "sw-precache --verbose --config=sw-precache-config.js",
-    "predeploy": "ng build --prod --aot && npm run precache",
+    "predeploy": "ng build --prod --aot",
     "deploy": "firebase deploy"
   },
   "private": true,
