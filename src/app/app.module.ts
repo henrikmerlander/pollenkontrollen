@@ -104,7 +104,7 @@ import { RegionMapComponent } from './region-map/region-map.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    ServiceWorkerModule.register('/service-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     ForecastService,
