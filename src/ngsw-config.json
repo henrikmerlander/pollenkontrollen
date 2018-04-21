@@ -26,5 +26,18 @@
                 ]
             }
         }
+    ],
+    "dataGroups": [
+        {
+            "name": "rss2json",
+            "urls": [
+                "https://rss2json.com/**"
+            ],
+            "cacheConfig": {
+                "maxSize": 100,
+                "maxAge": "1d",
+                "strategy": "freshness"
+            }
+        }
     ]
 }
